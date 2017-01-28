@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="navbar-brand"><%= link_to (chat_rooms_path) do %>
+          <%= image_tag 'tottspat-logo.gif', class: 'img-responsive', style: 'height:160px' %>
+        <% end %></div>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-right">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Chatrooms', chat_rooms_path %></li>
+          <li><% if user_signed_in? %>
+            <ul class="nav navbar-nav"><span class="navbar-text">Logged in as <strong><%= current_user.name %></strong></span></ul>
+            <% end %>
+          </li>   
+        </ul>
+        <button type="button" class="btn btn-default navbar-btn nav-item active">
+           <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %></button>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

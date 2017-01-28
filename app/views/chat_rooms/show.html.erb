@@ -1,22 +1,24 @@
 <div class="container-fluid">
-<h1><%= @chat_room.title %></h1> | <%= link_to 'Edit', edit_chat_room_path(@chat_room) %>
+	<h1><%= @chat_room.title %></h1>
 
-<div id="messages" data-chat-room-id="<%= @chat_room.id %>">
-  <%= render @chat_room.messages %>
-</div>
+	<div id="messages" data-chat-room-id="<%= @chat_room.id %>">
+	  <% if @message.try(:any) %>
+  		<%= render 'messages/messages' %>
+  	<% end %>
+	</div>
 
-<hr>
+	<hr>
 
-<%= form_for @message, url: '#' do |f| %>
-	<%= hidden_field_tag 'chat_room_id', @chat_room.id %>
-  <div class="form-group">
-    <%= f.label :body %>
-    <%= f.text_area :body, class: 'form-control' %>
-   	<small class="text-muted">From 2 to 1000 characters</small>
-  </div>
+	<%= form_for @message, url: '#' do |f| %>
+  	<%= hidden_field_tag 'chat_room_id', @chat_room.id %>
+  	<div class="form-group">
+    	<%= f.label :body %>
+    	<%= f.text_area :body, class: 'form-control' %>
+    	<small class="text-muted">From 2 to 1000 characters</small>
+  	</div>
 
-  <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
-<% end %>
+  	<%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
+	<% end %>
 
-<%= link_to 'Back', chat_rooms_path %>
+	<%= link_to 'Back', chat_rooms_path %>
 </div>

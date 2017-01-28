@@ -1,0 +1,38 @@
+body {
+	text-align: center;
+	background-image: url('paper.gif');
+	background-position: center;
+	background-size: cover;
+}
+
+.container-fluid {
+	width: 75%
+}
+
+.navbar {
+	height: 180px;
+}
+
+.navbar-form {
+	margin-top: 100px;
+}
+
+.navbar-default .navbar-nav li a {
+	font-family: 'Poiret One', cursive;
+	font-size: large;
+}
+
+p {
+	font-family: 'Poiret One', cursive;
+	font-size: large;
+}
+
+a {
+	font-family: 'Poiret One', cursive;
+	color: #966676;
+	font-size: large;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Sacramento', cursive;
+}

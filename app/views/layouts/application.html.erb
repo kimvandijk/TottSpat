@@ -3,34 +3,20 @@
   <head>
     <title>TottSpat</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %><link href="https://fonts.googleapis.com/css?family=Poiret+One|Sacramento" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
-    <nav class="navbar navbar-dark bg-inverse">
-      <%= link_to 'TottSpat', root_path, class: 'navbar-brand' %>
-
-      <% if user_signed_in? %>
-        <ul class="nav navbar-nav pull-xs-right">
-          <li class="nav-item">
-            <span class="text-muted">Logged in as <strong><%= current_user.name %></strong></span>
-          </li>
-          <li class="nav-item active">
-           <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          </li>
-        </ul>
-      <% end %>
-    </nav>
+    <%= render 'layouts/header' %>
     <div class="container-fluid">
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
     </div>
 
-    <footer>
+    <footer style= "margin-top: 50px;">
       <div class="container-fluid">
         <p class="text-muted">Created by <%= link_to 'Kim van Dijk', 'http://dutchkdesign.bitballoon.com' %></p>
       </div>
