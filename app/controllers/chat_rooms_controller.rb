@@ -1,5 +1,4 @@
 class ChatRoomsController < ApplicationController
-  
 
   # GET /chat_rooms
   # GET /chat_rooms.json
@@ -10,8 +9,8 @@ class ChatRoomsController < ApplicationController
   # GET /chat_rooms/1
   # GET /chat_rooms/1.json
   def show
-     @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
-      @message = Message.new
+    @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
+    @message = Message.new
   end
 
   # GET /chat_rooms/new
@@ -33,12 +32,10 @@ class ChatRoomsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_chat_room
-      @chat_room = ChatRoom.find(params[:id])
-    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def chat_room_params
-      params.require(:chat_room).permit(:title)
-    end
+  def chat_room_params
+    params.require(:chat_room).permit(:title)
+  end
 end

@@ -2,8 +2,8 @@
 	<h1><%= @chat_room.title %></h1>
 
 	<div id="messages" data-chat-room-id="<%= @chat_room.id %>">
-	  <% if @message.try(:any) %>
-  		<%= render 'messages/messages' %>
+	  <% unless @chat_room.messages.empty? %>
+  		<%= render 'messages/message', collection: @chat_room.messages %>
   	<% end %>
 	</div>
 
